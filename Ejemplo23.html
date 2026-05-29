@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/><!--<meta charset="iso-8859-1"> -->
+<!-- charset="utf-8": Permite mostrar caracteres especiales (ñ, á, é, etc.) -->
+<title>Ejemplo 23</title>
+
+<style>
+/* ========================================
+   ESTILOS CSS DE LA GALERÍA
+   ======================================== */
+
+* {
+  /* El asterisco selecciona TODOS los elementos de la página */
+   /* Esto facilita crear diseños responsivos y controlar dimensiones precisamente */
+  box-sizing: border-box;
+  /* box-sizing: border-box: El padding y border se incluyen en el ancho total del elemento */
+}
+
+div.gallery {
+  /* Selecciona todos los div con class="gallery" */
+  border: 1px solid #ccc;/* border: Borde de 1 píxel, estilo sólido, color gris claro (#ccc) */
+}
+
+div.gallery:hover {/* Efecto cuando el mouse pasa sobre la galería */
+  border: 2px solid #777;/* El borde cambia a 2 píxeles y color gris más oscuro (#777) */
+}
+
+div.gallery img { /* Selecciona las imágenes dentro de div.gallery */
+  width: 100%;/* width: La imagen ocupa el 100% del ancho de su contenedor padre */
+  height: 200px;/* height: Altura fija de 200 píxeles para todas las imágenes */
+}
+
+div.desc {/* Selecciona todos los div con class="desc" (descripción) */
+  padding: 15px;/* padding: Relleno interior de 15 píxeles en todos los lados */
+  text-align: justify;/* text-align: justify: El texto se alinea a ambos márgenes (izquierda y derecha) */
+  font-family: Arial;/* font-family: Tipo de fuente Arial para el texto de descripción */
+}
+
+.responsive { /* Clase para hacer la galería responsiva (se adapta a diferentes pantallas) */
+  padding: 0 6px;/* padding: 0 arriba/abajo, 6 píxeles izquierda/derecha (espacio entre columnas) */
+  float: left;/* float: left: Flota los elementos hacia la izquierda (los pone en fila horizontal) */
+  width: 24.99999%;/* width: Cada elemento ocupa ~25% del ancho (4 elementos por fila en escritorio) */
+}
+
+@media only screen and (max-width: 700px) {
+  /* Media Query: Reglas CSS que solo se aplican en ciertas condiciones */
+  /* only screen: Solo para pantallas (no impresoras, etc.) */
+  /* max-width: 700px: Cuando la pantalla mide 700 píxeles o menos (tablets) */
+  
+  .responsive {
+    width: 49.99999%; /* En tablets: Cada elemento ocupa ~50% (2 elementos por fila) */
+    margin: 6px 0;/* margin: 6 píxeles arriba/abajo, 0 izquierda/derecha (espacio entre filas) */
+  }
+}
+
+.clearfix:after {
+  /* clearfix: Técnica para limpiar elementos flotados (float) */
+  /* :after: Pseudo-elemento que inserta contenido después del elemento */  
+  content: "";/* content: Contenido vacío (solo sirve para limpiar el float) */
+  display: table;/* display: table: Crea un elemento de bloque que limpia los floats */
+  clear: both;/* clear: both: Limpia los elementos flotados a izquierda y derecha */
+}
+
+div p {
+  /* Selecciona párrafos dentro de div */
+  text-align: justify;/* text-align: justify: Texto alineado a ambos márgenes */
+  font-family: Verdana;/* font-family: Tipo de fuente Verdana para el párrafo */
+}
+
+@media only screen and (max-width: 500px) {
+  /* Cuando la pantalla mide 500 píxeles o menos (móviles) */
+  
+  .responsive {
+     /* En móviles: Cada elemento ocupa 100% (1 elemento por fila) */
+    /* Las imágenes se apilan verticalmente para mejor visualización */
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<h1>Lenguajes de Programacion</h1>
+<h2>haga un clic en la imagen para una vista mas grande</h2>
+
+<div class="responsive">
+  <div class="gallery"> <!-- class="gallery": Aplica los estilos de galería (borde, hover, etc.) -->  
+    <a target="_blank" href="imagenes/php.jpg">
+    <img src="imagenes/php.jpg" alt="Cinque Terre" width="600" height="400">           
+    </a>    
+    <div class="desc">PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML.</div>
+    <!-- class="desc": Aplica estilos de descripción (padding, texto justificado, fuente Arial) -->    
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="imagenes/python.jpg">
+      <img src="imagenes/python.jpg" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">Python es un lenguaje de programación simple y efectivo, con estructuras de datos de alto nivel eficientes y un simple pero efectivo sistema de programación orientado a objetos.</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="imagenes/java.jpg">
+      <img src="imagenes/java.jpg" alt="Northern Lights" width="600" height="400">
+    </a>
+    <div class="desc">Oracle Java es la plataforma número uno de lenguaje de programación y desarrollo. Reduce costos, acorta los plazos de desarrollo, impulsa la innovación y mejora los servicios de las aplicaciones.</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="imagenes/go.jpg">
+      <img src="imagenes/go.jpg" alt="Mountains" width="600" height="400">
+    </a>
+    <div class="desc">Go es un lenguaje de programación relativamente nuevo, su lanzamiento oficial fue a finales de 2009 (aunque su primera versión estable fue en 2012), por lo que no lleva ni una década entre nosotros.</div>
+  </div>
+</div>
+
+<div class="clearfix"></div> <!-- class="clearfix": Limpia los elementos flotados para que el contenido siguiente no se desborde -->
+
+<div style="padding:6px;"><!-- style="padding:6px;": CSS en línea (solo para este elemento) -->
+  <!-- padding: 6 píxeles de relleno interior en todos los lados -->
+  <p>Un lenguaje de programación es, como su nombre indica, un lenguaje como podría ser el inglés. La diferencia es que sirve únicamente para comunicarse con una máquina y controlar su comportamiento. Existen una gran cantidad de lenguajes de programación creados para diferentes objetivos. Todos ellos tienen un conjunto de reglas sintácticas y semánticas que sirven para definir el tipo de datos con los que se puede trabajar con ellos y, en consecuencia, el tipo de acciones que se pueden llevar a cabo con ellos.</p>
+  <!-- p: Párrafo de texto normal -->
+  
+</div>
+
+</body>
+</html>
